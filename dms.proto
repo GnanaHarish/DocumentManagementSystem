@@ -1,0 +1,99 @@
+
+syntax = "proto3";
+
+package documentmanagementsystem;
+
+message User{
+    string id = 1;
+    string username = 2;
+    string password = 3;
+}
+
+message File{
+    string id = 1;
+    string name = 2;
+    string content = 3;
+    string folder_id = 4;
+    User owner = 5; 
+}
+
+message Folder{
+    string id = 1;
+    string name = 2;
+    File file = 3;
+    User owner = 4;
+}
+
+message CreateFileRequest{
+    string name = 1;
+    string content = 2;
+    string folder_id = 3;
+    User owner = 4;
+}
+
+message CreateFileResponse{
+    File file = 1;
+    string message = 2;
+}
+
+message CreateFolderRequest{
+    string name = 1;
+    User owner = 2;
+}
+
+message CreateFolderResponse{
+    Folder folder = 1;
+    string message = 2;
+}
+
+message MoveFileRequest{
+    string file_id = 1;
+    string folder_id = 2;
+}
+
+message MoveFileResponse{
+    File file = 1;
+    string message = 2;
+}
+
+message ListFoldersAndFilesRequest{
+    User owner = 1;
+}
+
+message ListFoldersAndFilesResponse{
+    repeated Folder folders = 1;
+    repeated File files = 2;
+}
+
+message ListFilesInsideFolderRequest{
+    User owner = 1;
+    string folder_id = 2;
+}
+
+message ListFilesInsideFolderResponse{
+    File file = 1;
+    string message = 2;
+}
+
+
+message UserLoginRequest{
+    string username = 1;
+    string password = 2;
+}
+
+message UserLoginResponse{
+    bool success = 1;
+  string token = 2;
+}
+
+
+//Services
+
+service DocumentManagementSystem{
+    rpc CreateFile(CreateFileRequest) returns (CreateFileResponse);
+    rpc CreateFolder(CreateFolderRequest) returns (CreateFolderResponse);
+    rpc MoveFile(MoveFileRequest) returns (MoveFileResponse);
+    rpc ListFoldersAndFiles(ListFoldersAndFilesRequest) returns (ListFoldersAndFilesResponse);
+    rpc GetFilesInsideFolder(ListFilesInsideFolderRequest) returns (ListFilesInsideFolderResponse);
+    rpc UserLogin(UserLoginRequest) returns (UserLoginResponse);
+}

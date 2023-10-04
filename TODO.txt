@@ -1,0 +1,12 @@
+
+
+1.Create separate file for all business logic, keep the server file with less code
+2.Response correct (Need to hide some unwanted Response)? - Need to check.
+3.Token based authentication? - Need to implement
+4.Middleware? - Need to implement
+5.Error Handling
+6.Any improvements can be made in the business logic?
+7.Any other way to structure Collections?
+8.ER diagram - pending
+9. Handle Same name for files and folders
+10. Add owner wise filter for creation of files and folders

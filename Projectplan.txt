@@ -1,0 +1,19 @@
+High Level plan to follow(orders can be changed and new items can be added)
+
+1. Setup Node Server
+2. Setup protobuf for users, files and folders
+3. Implement gPRC definitions
+4. Create Database - create a ER model in lucidchart or similar
+5. implement the below business logic
+        a. The home screen of the app, for a user, shows all the folders
+            owned by the user, and all the files that are not present in any
+            folder.
+        b. For every folder that the user owns, the user can see all the files
+            contained in the folder.
+        c. Creation of files (either inside of folder or not contained in any
+            folder)
+        d. Creation of folders
+        e. Moving of files from one folder to another.
+        f. User Login
+
+Add any additional steps if needed while developing the application.
